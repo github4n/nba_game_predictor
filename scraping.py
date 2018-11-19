@@ -18,7 +18,8 @@ dates = pd.date_range(start='11/03/1989', end='11/12/1989', freq='D').strftime('
 json_data = []
 for date in dates:
 	try:
-		headers = {'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'}
+		headers = {'User-agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36'}
+		# headers = {'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'}
 		request = requests.get("https://stats.nba.com/stats/scoreboard/", 
 					params={'GameDate':date, 'LeagueID':'00', 'DayOffset':'0'}, 
 					headers=headers)
