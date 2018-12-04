@@ -76,17 +76,8 @@ class NBAScraper:
 			except requests.exceptions.ReadTimeout:
 				print("=(")
 
-		nba_ingame_stats.to_csv('nba_ingame.csv')
-		nba_meta_stats.to_csv('nba_meta.csv')
-		nba_series_stats.to_csv('nba_series.csv')
-		nba_last_meeting_stats.to_csv('nba_last_meeting.csv')
-
-
-
-
-
-
-
-
+		# combine all tables on game id and write to csv
+		nba_df = nba_ingame_stats.merge(nba_last_meeting_stats, on='GAME_ID').merge(nba_meta_stats, on='GAME_ID').merge(nba_series_stats, on='GAME_ID')	
+		nba_df.to_csv('nba_df.csv')	
 
 
